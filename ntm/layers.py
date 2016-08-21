@@ -3,7 +3,7 @@ import theano.tensor as T
 
 from lasagne.layers import Layer
 
-from heads import ReadHead, WriteHead, ReadHeadCollection, WriteHeadCollection
+from ntm.heads import ReadHead, WriteHead, ReadHeadCollection, WriteHeadCollection
 
 
 class NTMLayer(Layer):
@@ -39,9 +39,9 @@ class NTMLayer(Layer):
         self.controller = controller
         self.heads = heads
         self.write_heads = WriteHeadCollection(heads=\
-            filter(lambda head: isinstance(head, WriteHead), heads))
+            list(filter(lambda head: isinstance(head, WriteHead), heads)))
         self.read_heads = ReadHeadCollection(heads=\
-            filter(lambda head: isinstance(head, ReadHead), heads))
+            list(filter(lambda head: isinstance(head, ReadHead), heads)))
         self.only_return_final = only_return_final
 
     def get_output_shape_for(self, input_shapes):

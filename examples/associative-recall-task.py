@@ -16,8 +16,8 @@ from ntm.controllers import DenseController
 from ntm.heads import WriteHead, ReadHead
 from ntm.updates import graves_rmsprop
 
-from utils.generators import AssociativeRecallTask
-from utils.visualization import Dashboard
+from generators import AssociativeRecallTask
+from visualization import Dashboard
 
 
 
@@ -84,7 +84,7 @@ if __name__ == '__main__':
                 mean_scores = np.mean(scores)
                 if mean_scores < 0.01:
                     learning_rate.set_value(1e-5)
-                print 'Batch #%d: %.6f' % (i, mean_scores)
+                print('Batch #%d: %.6f' % (i, mean_scores))
                 scores = []
     except KeyboardInterrupt:
         pass

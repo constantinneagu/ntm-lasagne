@@ -8,9 +8,9 @@ from lasagne.theano_extensions import padding
 import lasagne.init
 import lasagne.nonlinearities
 
-import similarities
-import nonlinearities
-import init
+from ntm import similarities
+from ntm import nonlinearities
+from ntm import init
 
 
 class Head(Layer):
@@ -305,9 +305,9 @@ class ReadHead(Head):
 
 class HeadCollection(object):
     r"""
-    The base class :class:`HeadCollection` represents a generic collection 
-    of heads. Each head is an instance of :class:`Head`. This allows to 
-    process the heads simultaneously if they have the same type. This should 
+    The base class :class:`HeadCollection` represents a generic collection
+    of heads. Each head is an instance of :class:`Head`. This allows to
+    process the heads simultaneously if they have the same type. This should
     be limited to internal uses only.
 
     Parameters

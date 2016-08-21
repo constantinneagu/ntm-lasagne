@@ -16,8 +16,8 @@ from ntm.controllers import DenseController
 from ntm.heads import WriteHead, ReadHead
 from ntm.updates import graves_rmsprop
 
-from utils.generators import RepeatCopyTask
-from utils.visualization import Dashboard
+from generators import RepeatCopyTask
+from visualization import Dashboard
 
 
 def model(input_var, batch_size=1, size=8, num_units=100, memory_shape=(128, 20)):
@@ -80,7 +80,7 @@ if __name__ == '__main__':
             all_scores.append(score)
             if i % 500 == 0:
                 mean_scores = np.mean(scores)
-                print 'Batch #%d: %.6f' % (i, mean_scores)
+                print('Batch #%d: %.6f' % (i, mean_scores))
                 scores = []
     except KeyboardInterrupt:
         pass
